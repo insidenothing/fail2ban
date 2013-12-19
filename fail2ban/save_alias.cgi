@@ -2,7 +2,7 @@
 # save_alias.cgi
 # Save or delete a new or existing alias
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './aliases-lib.pl';
 &ReadParse();
 &error_setup($text{'asave_err'});

@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # flushq.cgi
-# Run sendmail -vq and display the output
+# Run fail2ban -vq and display the output
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'flushq'} || &error($text{'flushq_ecannot'});
 &ui_print_unbuffered_header(undef, $text{'flushq_title'}, "");
 &ReadParse();

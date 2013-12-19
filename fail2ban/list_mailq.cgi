@@ -2,7 +2,7 @@
 # list_mailq.cgi
 # Display the current mail queue
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './boxes-lib.pl';
 &ReadParse();
 $access{'mailq'} || &error($text{'mailq_ecannot'});

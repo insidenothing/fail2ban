@@ -2,7 +2,7 @@
 # list_aliases.cgi
 # Displays a list of all aliases
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './aliases-lib.pl';
 &ReadParse();
 $access{'amode'} || &error($text{'aliases_ecannot'});

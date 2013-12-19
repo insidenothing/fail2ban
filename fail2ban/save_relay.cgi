@@ -2,7 +2,7 @@
 # save_relay.cgi
 # Save relay domains list
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParseMime();
 $access{'relay'} || &error($text{'relay_ecannot'});
 &error_setup($text{'relay_err'});

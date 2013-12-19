@@ -2,7 +2,7 @@
 # save_trusts.cgi
 # Save trusted users list
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParseMime();
 $access{'trusts'} || &error($text{'trusts_ecannot'});
 &error_setup($text{'trusts_err'});

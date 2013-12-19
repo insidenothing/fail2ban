@@ -1,4 +1,4 @@
-sendmail_cf=sendmail.cf dosyasýnýn tam yeri,8
+sendmail_cf=fail2ban.cf dosyasýnýn tam yeri,8
 sendmail_pid=Fail2ban pid dosyasýnýn tam yeri,8
 sendmail_command=Fail2ban'i sunucu modunda çalýþtýrma komutu,0
 sendmail_stop_command=Fail2ban'i durdurma komutu,3,Ýþlemi öldür

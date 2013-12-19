@@ -2,7 +2,7 @@
 # save_access.cgi
 # Save, create or delete an access rule
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './access-lib.pl';
 &ReadParse();
 $access{'access'} || &error($text{'access_ecannot'});

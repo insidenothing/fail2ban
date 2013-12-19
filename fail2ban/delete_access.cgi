@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # Delete several spam control rules
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './access-lib.pl';
 &ReadParse();
 &error_setup($text{'sdelete_err'});

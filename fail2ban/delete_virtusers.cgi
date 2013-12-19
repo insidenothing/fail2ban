@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # Delete several virtusers
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './virtusers-lib.pl';
 &ReadParse();
 &error_setup($text{'vdelete_err'});

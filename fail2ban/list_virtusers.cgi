@@ -2,7 +2,7 @@
 # list_virtusers.cgi
 # Display a list of all domain and address mappings
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './virtusers-lib.pl';
 &ReadParse();
 $access{'vmode'} || &error($text{'virtusers_ecannot'});
@@ -12,7 +12,7 @@ $conf = &get_sendmailcf();
 $vfile = &virtusers_file($conf);
 ($vdbm, $vdbmtype) = &virtusers_dbm($conf);
 if (!$vdbm) {
-	# No Kvirtuser directive in sendmail.cf
+	# No Kvirtuser directive in fail2ban.cf
 	print "<b>",&text('virtusers_efeature', 'list_features.cgi'),"</b><p>\n";
 	&ui_print_footer("", $text{'index_return'});
 	exit;

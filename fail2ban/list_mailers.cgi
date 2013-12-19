@@ -2,7 +2,7 @@
 # list_mailers.cgi
 # Display a list of mailertable domains
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './mailers-lib.pl';
 
 $access{'mailers'} || &error($text{'mailers_cannot'});
@@ -12,7 +12,7 @@ $conf = &get_sendmailcf();
 $mfile = &mailers_file($conf);
 ($mdbm, $mdbmtype) = &mailers_dbm($conf);
 if (!$mdbm) {
-	# No Kmailertable directive in sendmail.cf
+	# No Kmailertable directive in fail2ban.cf
 	print "<b>",&text('mailers_efeature', 'list_features.cgi'),"</b><p>\n";
 	&ui_print_footer("", $text{'index_return'});
 	exit;

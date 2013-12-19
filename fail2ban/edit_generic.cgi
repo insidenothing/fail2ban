@@ -2,7 +2,7 @@
 # edit_generic.cgi
 # Edit an existing generic
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './generics-lib.pl';
 &ReadParse();
 $conf = &get_sendmailcf();

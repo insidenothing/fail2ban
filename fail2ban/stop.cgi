@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # stop.cgi
-# Stop the running sendmail process
+# Stop the running fail2ban process
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParse();
 $access{'stop'} || &error($text{'stop_ecannot'});
 &error_setup($text{'stop_err'});

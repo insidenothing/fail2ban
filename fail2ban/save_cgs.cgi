@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # save_cgs.cgi
-# Save sendmail.cg list
+# Save fail2ban.cg list
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParseMime();
 $access{'cgs'} || &error($text{'cgs_ecannot'});
 &error_setup($text{'cgs_err'});

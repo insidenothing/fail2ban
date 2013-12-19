@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # edit_alias.cgi
-# Edit an existing sendmail alias
+# Edit an existing fail2ban alias
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './aliases-lib.pl';
 &ReadParse();
 $conf = &get_sendmailcf();

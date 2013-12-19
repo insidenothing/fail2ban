@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # save_opts.cgi
-# Save various sendmail options
+# Save various fail2ban options
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParse();
 $access{'opts'} || &error($text{'opts_ecannot'});
 &error_setup($text{'opts_err'});

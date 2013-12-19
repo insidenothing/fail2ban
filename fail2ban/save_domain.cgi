@@ -2,7 +2,7 @@
 # save_domain.cgi
 # Save, create or delete an address mapping
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './domain-lib.pl';
 &ReadParse();
 $access{'domains'} || &error($text{'dsave_ecannot'});

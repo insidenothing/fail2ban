@@ -3,35 +3,35 @@
 # Simple autoreply script. Command line arguments are :
 # autoreply-file username alternate-file
 
-# Read sendmail module config
+# Read fail2ban module config
 $ENV{'PATH'} = "/bin:/usr/bin:/sbin:/usr/sbin";
 $p = -l $0 ? readlink($0) : $0;
 $p =~ /^(.*)\/[^\/]+$/;
 $moddir = $1;
 %config = &read_config_file("$moddir/config");
 
-# If this isn't the sendmail module, try it
+# If this isn't the fail2ban module, try it
 if (!$config{'sendmail_path'} || !-x $config{'sendmail_path'}) {
-	$moddir =~ s/([^\/]+)$/sendmail/;
+	$moddir =~ s/([^\/]+)$/fail2ban/;
 	%config = &read_config_file("$moddir/config");
 	}
 
 if (!$config{'sendmail_path'} || !-x $config{'sendmail_path'}) {
-	# Make some guesses about sendmail
-	if (-x "/usr/sbin/sendmail") {
-		%config = ( 'sendmail_path' => '/usr/sbin/sendmail' );
+	# Make some guesses about fail2ban
+	if (-x "/usr/sbin/fail2ban") {
+		%config = ( 'sendmail_path' => '/usr/sbin/fail2ban' );
 		}
-	elsif (-x "/usr/local/sbin/sendmail") {
-		%config = ( 'sendmail_path' => '/usr/local/sbin/sendmail' );
+	elsif (-x "/usr/local/sbin/fail2ban") {
+		%config = ( 'sendmail_path' => '/usr/local/sbin/fail2ban' );
 		}
-	elsif (-x "/opt/csw/lib/sendmail") {
-		%config = ( 'sendmail_path' => '/opt/csw/lib/sendmail' );
+	elsif (-x "/opt/csw/lib/fail2ban") {
+		%config = ( 'sendmail_path' => '/opt/csw/lib/fail2ban' );
 		}
-	elsif (-x "/usr/lib/sendmail") {
-		%config = ( 'sendmail_path' => '/usr/lib/sendmail' );
+	elsif (-x "/usr/lib/fail2ban") {
+		%config = ( 'sendmail_path' => '/usr/lib/fail2ban' );
 		}
 	else {
-		die "Failed to find sendmail or config file";
+		die "Failed to find fail2ban or config file";
 		}
 	}
 
@@ -248,7 +248,7 @@ else {
 	$type .= "; charset=$cs" if ($cs);
 	}
 
-# run sendmail and feed it the reply
+# run fail2ban and feed it the reply
 ($rfrom) = &split_addresses($rheader{'From'});
 if ($rfrom->[0]) {
 	open(MAIL, "|$config{'sendmail_path'} -t -f$rfrom->[0]");

@@ -2,7 +2,7 @@
 # detach.cgi
 # View one attachment from a message
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './boxes-lib.pl';
 
 &ReadParse();

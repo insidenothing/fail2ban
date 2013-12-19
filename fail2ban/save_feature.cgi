@@ -2,7 +2,7 @@
 # save_feature.cgi
 # Add a new line to the M4 file
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './features-lib.pl';
 &ReadParse();
 $features_access || &error($text{'features_ecannot'});

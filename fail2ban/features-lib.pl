@@ -1,7 +1,7 @@
 # features-lib.pl
 
 # list_features()
-# Returns a list of entries in the sendmail.mc file, each of which may be a
+# Returns a list of entries in the fail2ban.mc file, each of which may be a
 # feature or some other unrecognized line
 sub list_features
 {

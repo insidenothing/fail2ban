@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # list_features.cgi
-# Display a list of all sendmail features from the M4 file
+# Display a list of all fail2ban features from the M4 file
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './features-lib.pl';
 
 $features_access || &error($text{'features_ecannot'});
@@ -62,7 +62,7 @@ if (@features) {
 	      "value='$text{'features_manual'}'></td>\n";
 	print "</tr></table></form>\n";
 
-	# Show button to rebuild sendmail.cf
+	# Show button to rebuild fail2ban.cf
 	print &ui_hr();
 	print "<form action=build.cgi>\n";
 	print "<table width=100%><tr>\n";

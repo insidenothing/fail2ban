@@ -2,7 +2,7 @@
 # del_mailqs.cgi
 # Delete some mail messages from the queue
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './boxes-lib.pl';
 &ReadParse();
 @files = split(/\0/, $in{'file'});

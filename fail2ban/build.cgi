@@ -1,15 +1,15 @@
 #!/usr/local/bin/perl
 # build.cgi
-# Build a new sendmail.cf, after first confirming the changes
+# Build a new fail2ban.cf, after first confirming the changes
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './features-lib.pl';
 $features_access || &error($text{'features_ecannot'});
 &ReadParse();
 $cmd = "cd $config{'sendmail_features'}/m4 ; m4 $config{'sendmail_features'}/m4/cf.m4 $config{'sendmail_mc'}";
 
 if ($in{'confirm'}) {
-	# Replace sendmail.cf with new version
+	# Replace fail2ban.cf with new version
 	&lock_file($config{'sendmail_cf'});
 	system("$cmd 2>/dev/null >$config{'sendmail_cf'} </dev/null");
 	&unlock_file($config{'sendmail_cf'});

@@ -2,7 +2,7 @@
 # edit_file.cgi
 # Display the contents of a file for editing
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &error_setup($text{'file_err'});
 $access{'manual'} || &error($text{'file_ecannot'});
 &ReadParse();

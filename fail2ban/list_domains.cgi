@@ -2,7 +2,7 @@
 # list_domains.cgi
 # Display a list of all domain mappings
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './domain-lib.pl';
 $access{'domains'} || &error($text{'domains_ecannot'});
 &ui_print_header(undef, $text{'domains_title'}, "");
@@ -11,7 +11,7 @@ $conf = &get_sendmailcf();
 $dfile = &domains_file($conf);
 ($ddbm, $ddbmtype) = &domains_dbm($conf);
 if (!$ddbm) {
-	# No Kdomain directive in sendmail.cf
+	# No Kdomain directive in fail2ban.cf
 	print "<b>",&text('domains_efeature', 'list_features.cgi'),"</b><p>\n";
 	&ui_print_footer("", $text{'index_return'});
 	exit;

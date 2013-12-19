@@ -2,7 +2,7 @@
 # save_generic.cgi
 # Save, create or delete an outgoing address mapping
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './generics-lib.pl';
 &ReadParse();
 $access{'omode'} || &error($text{'gsave_ecannot'});

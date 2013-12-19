@@ -2,7 +2,7 @@
 # edit_domain.cgi
 # Edit an existing domain
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './domain-lib.pl';
 &ReadParse();
 $access{'domains'} || &error($text{'dform_ecannot'});

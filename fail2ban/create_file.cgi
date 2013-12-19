@@ -2,7 +2,7 @@
 # create_file.cgi
 # Create the file for virtusers, domains, mailers or access_db
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParse();
 $conf = &get_sendmailcf();
 if ($in{'mode'} eq 'virtusers') {

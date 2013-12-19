@@ -1,6 +1,6 @@
-# sendmail-lib.pl
-# Functions for managing sendmail aliases, domains and mappings.
-# Only sendmail versions 8.8 and above are supported
+# fail2ban-lib.pl
+# Functions for managing fail2ban aliases, domains and mappings.
+# Only fail2ban versions 8.8 and above are supported
 
 BEGIN { push(@INC, ".."); };
 use WebminCore;
@@ -11,7 +11,7 @@ $config{'perpage'} ||= 20;	# a value of 0 can cause problems
 @port_modifier_flags = ( 'a', 'b', 'c', 'f', 'h', 'C', 'E' );
 
 # get_sendmailcf()
-# Parses sendmail.cf and return a reference to an array of options.
+# Parses fail2ban.cf and return a reference to an array of options.
 # Each line is a single character directive, followed by a list of values?
 sub get_sendmailcf
 {
@@ -40,7 +40,7 @@ return \@sendmailcf_cache;
 }
 
 # check_sendmail_version(&config)
-# Is the sendmail config file a usable version?
+# Is the fail2ban config file a usable version?
 sub check_sendmail_version
 {
 local $ver = &find_type("V", $_[0]);
@@ -48,7 +48,7 @@ return $ver && $ver->{'value'} =~ /^(\d+)/ && $1 >= 7 ? $1 : undef;
 }
 
 # get_sendmail_version(&out)
-# Returns the actual sendmail executable version, if it is available
+# Returns the actual fail2ban executable version, if it is available
 sub get_sendmail_version
 {
 local $out = &backquote_with_timeout("$config{'sendmail_path'} -d0 -bv 2>&1",
@@ -162,7 +162,7 @@ return undef;
 }
 
 # restart_sendmail()
-# Send a SIGHUP to sendmail
+# Send a SIGHUP to fail2ban
 sub restart_sendmail
 {
 if ($config{'sendmail_restart_command'}) {
@@ -182,7 +182,7 @@ else {
 			}
 		}
 	if (!$any) {
-		local @pids = &find_byname("sendmail");
+		local @pids = &find_byname("fail2ban");
 		@pids || return $text{'restart_epids'};
 		&kill_logged('HUP', @pids) ||
 			return &text('restart_ekill', $!);
@@ -310,7 +310,7 @@ foreach $e (@{$_[0]}) {
 }
 
 # get_file_or_config(&config, suffix, [additional-conf], [&cwfile])
-# Returns all values for some config file entries, which may be in sendmail.cf
+# Returns all values for some config file entries, which may be in fail2ban.cf
 # (like Cw) or externally (like Fw)
 sub get_file_or_config
 {
@@ -337,7 +337,7 @@ if ($cwfile) {
 else {
 	$$cwref = undef if ($cwref);
 	}
-# Add entries from sendmail.cf
+# Add entries from fail2ban.cf
 foreach $f (&find_type("C", $conf)) {
 	if ($f->{'value'} =~ /^${suffix}\s*(.*)$/ ||
 	    $f->{'value'} =~ /^\{${suffix}\}\s*(.*)$/) {
@@ -351,7 +351,7 @@ return &unique(@rv);
 }
 
 # save_file_or_config(&conf, suffix, &values, [additional-conf])
-# Updates the values in some external file or in sendmail.cf
+# Updates the values in some external file or in fail2ban.cf
 sub save_file_or_config
 {
 local ($conf, $suffix, $values, $addit) = @_;
@@ -371,7 +371,7 @@ local @new;
 local $d;
 if ($cwfile) {
 	# If there is a .cw file, write all entries to it and take any
-	# out of sendmail.cf
+	# out of fail2ban.cf
 	&open_tempfile(CW, ">$cwfile");
 	foreach $d (@$values) {
 		&print_tempfile(CW, $d,"\n");
@@ -379,7 +379,7 @@ if ($cwfile) {
 	&close_tempfile(CW);
 	}
 else {
-	# Stick all entries in sendmail.cf
+	# Stick all entries in fail2ban.cf
 	foreach $d (@$values) {
 		push(@new, { 'type' => 'C',
 			     'values' => [ $suffix.$d ] });
@@ -389,7 +389,7 @@ else {
 }
 
 # add_file_or_config(&config, suffix, value)
-# Adds an entry to sendmail.cf or an external file
+# Adds an entry to fail2ban.cf or an external file
 sub add_file_or_config
 {
 local ($conf, $suffix, $value) = @_;
@@ -409,7 +409,7 @@ if ($cwfile) {
 	&close_tempfile(CW);
 	}
 else {
-	# Add to sendmail.cf
+	# Add to fail2ban.cf
 	local @new = ( @old, { 'type' => 'C',
 			       'values' => [ $suffix.$value ] });
 	&save_directives($conf, \@old, \@new);
@@ -417,7 +417,7 @@ else {
 }
 
 # delete_file_or_config(&config, suffix, value)
-# Removes an entry from sendmail.cf or an external file
+# Removes an entry from fail2ban.cf or an external file
 sub delete_file_or_config
 {
 local ($conf, $suffix, $value) = @_;
@@ -437,7 +437,7 @@ if ($cwfile) {
 	&flush_file_lines($cwfile);
 	}
 else {
-	# Remove from sendmail.cf
+	# Remove from fail2ban.cf
 	local @new = grep { $_->{'values'}->[0] ne $suffix.$value } @old;
 	&save_directives($conf, \@old, \@new);
 	}
@@ -475,7 +475,7 @@ return @rv;
 }
 
 # stop_sendmail()
-# Stops the sendmail process, returning undef on success or an error message
+# Stops the fail2ban process, returning undef on success or an error message
 # upon failure.
 sub stop_sendmail
 {
@@ -500,7 +500,7 @@ return undef;
 }
 
 # start_sendmail()
-# Starts the sendmail server, returning undef on success or an error message
+# Starts the fail2ban server, returning undef on success or an error message
 # upon failure.
 sub start_sendmail
 {
@@ -534,7 +534,7 @@ else {
 		return undef;
 		}
 	else {
-		return &find_byname("sendmail");
+		return &find_byname("fail2ban");
 		}
 	}
 }

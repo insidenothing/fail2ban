@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # Delete several mail aliases
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './aliases-lib.pl';
 &ReadParse();
 &error_setup($text{'adelete_err'});

@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # list_trusts.cgi
-# List users trusted by sendmail
+# List users trusted by fail2ban
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'trusts'} || &error($text{'trusts_ecannot'});
 &ui_print_header(undef, $text{'trusts_title'}, "");
 

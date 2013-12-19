@@ -3,7 +3,7 @@
 # A form for editing options set with the 'O foo=bar' directive,
 # and other things.
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'opts'} || &error($text{'opts_ecannot'});
 &ui_print_header(undef, $text{'opts_title'}, "");
 

@@ -2,7 +2,7 @@
 # save_file.cgi
 # Save a manually edited file
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &error_setup($text{'file_err'});
 $access{'manual'} || &error($text{'file_ecannot'});
 &ReadParseMime();

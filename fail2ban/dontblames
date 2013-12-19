@@ -29,7 +29,7 @@ LinkedIncludeFileInWritableDir Allow :include: files that are links in writable 
 LinkedMapInWritableDir Allow map files that are links in writable directories
 LinkedServiceSwitchFileInWritableDir Allow the service switch file to be a link even if the directory is writable
 MapInUnsafeDirPath Allow maps (e.g., hash, btree, and dbm files) in unsafe directories
-NonRootSafeAddr Do not mark file and program deliveries as unsafe if sendmail is not running with root privileges
+NonRootSafeAddr Do not mark file and program deliveries as unsafe if fail2ban is not running with root privileges
 RunProgramInUnsafeDirPath Go ahead and run programs that are in writable directories
 RunWritableProgram Go ahead and run programs that are group- or world-writable
 TrustStickyBit Allow group or world writable directories if the sticky bit is set on the directory

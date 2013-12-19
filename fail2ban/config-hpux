@@ -1,8 +1,8 @@
-sendmail_cf=/etc/mail/sendmail.cf
-sendmail_pid=/etc/mail/sendmail.pid
+sendmail_cf=/etc/mail/fail2ban.cf
+sendmail_pid=/etc/mail/fail2ban.pid
 makemap_path=makemap
-sendmail_command=/sbin/init.d/sendmail start
-sendmail_path=/usr/sbin/sendmail
+sendmail_command=/sbin/init.d/fail2ban start
+sendmail_path=/usr/sbin/fail2ban
 mail_dir=/var/mail
 perpage=20
 sort_mode=0

@@ -2,7 +2,7 @@
 # manual_features.cgi
 # Save the manually edited M4 file
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './features-lib.pl';
 &ReadParseMime();
 $features_access || &error($text{'features_ecannot'});

@@ -1,20 +1,20 @@
 #!/usr/local/bin/perl
 # index.cgi
-# Display icons for various things that can be configured in sendmail
+# Display icons for various things that can be configured in fail2ban
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './boxes-lib.pl';
 
-# Check if sendmail is actually installed
+# Check if fail2ban is actually installed
 if (!-x $config{'sendmail_path'}) {
 	&ui_print_header(undef, $text{'index_title'}, "", "intro", 1, 1, 0,
-		&help_search_link("sendmail", "man", "doc", "google"));
+		&help_search_link("fail2ban", "man", "doc", "google"));
 	print &text('index_epath', "<tt>$config{'sendmail_path'}</tt>",
 			  "$gconfig{'webprefix'}/config.cgi?$module_name"),"<p>\n";
 
 	&foreign_require("software", "software-lib.pl");
 	$lnk = &software::missing_install_link(
-			"sendmail", $text{'index_sendmail'},
+			"fail2ban", $text{'index_sendmail'},
 			"../$module_name/", $text{'index_title'});
 	print $lnk,"<p>\n" if ($lnk);
 
@@ -28,13 +28,13 @@ $ever = &get_sendmail_version(\$out);
 # Check if the config file exists, and is the right version
 if (!-s $config{'sendmail_cf'}) {
 	&ui_print_header(undef, $text{'index_title'}, "", "intro", 1, 1, 0,
-		&help_search_link("sendmail", "man", "doc", "google"));
+		&help_search_link("fail2ban", "man", "doc", "google"));
 	print &text('index_econfig', "<tt>$config{'sendmail_cf'}</tt>",
 		  "$gconfig{'webprefix'}/config.cgi?$module_name"),"<p>\n";
 
 	&foreign_require("software", "software-lib.pl");
 	$lnk = &software::missing_install_link(
-			"sendmail", $text{'index_sendmail'},
+			"fail2ban", $text{'index_sendmail'},
 			"../$module_name/", $text{'index_header'});
 	print $lnk,"<p>\n" if ($lnk);
 
@@ -44,7 +44,7 @@ if (!-s $config{'sendmail_cf'}) {
 $conf = &get_sendmailcf();
 $cfgver = &find_type("V", $conf);
 &ui_print_header(undef, $text{'index_title'}, "", "intro", 1, 1, 0,
-	&help_search_link("sendmail", "man", "doc", "google"), undef, undef,
+	&help_search_link("fail2ban", "man", "doc", "google"), undef, undef,
 	$ever && $cfgver ? &text('index_version2',$ever,"V$cfgver->{'value'}") :
 	$cfgver ? &text('index_version', "V$cfgver->{'value'}") :
 	$ever ? &text('index_xversion', $ever) : undef);

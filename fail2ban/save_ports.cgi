@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # Update the list of TCP ports Fail2ban uses
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './features-lib.pl';
 
 &ReadParse();
@@ -52,7 +52,7 @@ if (!$in{'ports_def'}) {
 		}
 	}
 
-# Update sendmail.cf
+# Update fail2ban.cf
 &lock_file($config{'sendmail_cf'});
 $conf = &get_sendmailcf();
 @oldlist = map { $_->[0] } &find_options("DaemonPortOptions", $conf);

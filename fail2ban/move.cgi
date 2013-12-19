@@ -2,7 +2,7 @@
 # move.cgi
 # Move a feature up or down
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './features-lib.pl';
 &ReadParse();
 $features_access || &error($text{'features_ecannot'});

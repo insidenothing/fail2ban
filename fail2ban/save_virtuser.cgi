@@ -2,7 +2,7 @@
 # save_virtuser.cgi
 # Save, create or delete an address mapping
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './virtusers-lib.pl';
 &ReadParse();
 $access{'vmode'} > 0 || &error($text{'vsave_ecannot'});

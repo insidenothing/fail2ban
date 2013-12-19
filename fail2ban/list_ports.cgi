@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # Show a list of TCP ports Fail2ban uses
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'ports'} || &error($text{'ports_ecannot'});
 &ui_print_header(undef, $text{'ports_title'}, "");
 

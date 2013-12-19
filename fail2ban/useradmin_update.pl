@@ -1,5 +1,5 @@
 
-do 'sendmail-lib.pl';
+do 'fail2ban-lib.pl';
 do 'aliases-lib.pl';
 
 %mail_sync = map { $_, 1 } split(/,/, $config{'mail_sync'});

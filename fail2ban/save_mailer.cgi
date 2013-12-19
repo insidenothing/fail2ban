@@ -2,7 +2,7 @@
 # save_mailer.cgi
 # Save, create or delete a mailertable entry
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './mailers-lib.pl';
 &ReadParse();
 $access{'mailers'} || &error($text{'msave_ecannot'});

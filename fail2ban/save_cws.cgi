@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # save_cws.cgi
-# Save sendmail.cw list
+# Save fail2ban.cw list
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParseMime();
 $access{'cws'} || &error($text{'cws_ecannot'});
 &error_setup($text{'cws_err'});

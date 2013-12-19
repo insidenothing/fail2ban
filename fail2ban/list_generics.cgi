@@ -2,7 +2,7 @@
 # list_generics.cgi
 # Display a list of addresses for outgoing address mapping
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './generics-lib.pl';
 &ReadParse();
 $access{'omode'} || &error($text{'generics_cannot'});
@@ -12,7 +12,7 @@ $conf = &get_sendmailcf();
 $gfile = &generics_file($conf);
 ($gdbm, $gdbmtype) = &generics_dbm($conf);
 if (!$gdbm) {
-	# No Kgenerics directive in sendmail.cf
+	# No Kgenerics directive in fail2ban.cf
 	print "<b>",&text('generics_efeature', 'list_features.cgi'),"</b><p>\n";
 	&ui_print_footer("", $text{'index_return'});
 	exit;
@@ -111,7 +111,7 @@ print &ui_columns_end();
 # (like florissa.home). Fail2ban automatically adds the full hostname
 # to unqualified addresses sent locally or through smtp (so <foo> becomes
 # <foo@florissa.home>
-# The G class can be defined by CG statements in sendmail.cf, or by a
+# The G class can be defined by CG statements in fail2ban.cf, or by a
 # FG/path line to use an external file..
 
 # If there is a generics mapping from an unqualified name, then it will

@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # Delete several mailers
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './mailers-lib.pl';
 &ReadParse();
 &error_setup($text{'mdelete_err'});

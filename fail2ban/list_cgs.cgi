@@ -2,7 +2,7 @@
 # list_cgs.cgi
 # List domains for which outgoing address mapping is done
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'cgs'} || &error($text{'cgs_ecannot'});
 &ui_print_header(undef, $text{'cgs_title'}, "");
 

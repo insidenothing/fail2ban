@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # Delete several generics
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './generics-lib.pl';
 &ReadParse();
 &error_setup($text{'gdelete_err'});

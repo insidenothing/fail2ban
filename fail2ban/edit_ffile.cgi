@@ -2,7 +2,7 @@
 # edit_ffile.cgi
 # Allow editing of a filter config file
 
-require (-r 'sendmail-lib.pl' ? './sendmail-lib.pl' :
+require (-r 'fail2ban-lib.pl' ? './fail2ban-lib.pl' :
 	 -r 'qmail-lib.pl' ? './qmail-lib.pl' :
 			     './postfix-lib.pl');
 &ReadParse();

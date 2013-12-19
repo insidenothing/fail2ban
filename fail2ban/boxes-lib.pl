@@ -963,14 +963,14 @@ elsif ($config{'qmail_dir'}) {
 	open(MAIL, "| $config{'qmail_dir'}/bin/qmail-inject");
 	}
 elsif ($config{'postfix_control_command'}) {
-	# Start postfix's sendmail wrapper
-	local $cmd = -x "/usr/lib/sendmail" ? "/usr/lib/sendmail" :
-			&has_command("sendmail");
+	# Start postfix's fail2ban wrapper
+	local $cmd = -x "/usr/lib/fail2ban" ? "/usr/lib/fail2ban" :
+			&has_command("fail2ban");
 	$cmd || &error($text{'send_ewrapper'});
 	open(MAIL, "| $cmd -f$fromaddr $qdests >/dev/null 2>&1");
 	}
 else {
-	# Start sendmail
+	# Start fail2ban
 	&has_command($config{'sendmail_path'}) ||
 	    &error(&text('send_epath', "<tt>$config{'sendmail_path'}</tt>"));
 	open(MAIL, "| $config{'sendmail_path'} -f$fromaddr $qdests >/dev/null 2>&1");

@@ -1,11 +1,11 @@
-sendmail_cf=/etc/sendmail.cf
-sendmail_features=/usr/share/sendmail/cf
-sendmail_mc=/usr/share/sendmail/cf/cf/generic-openlinux.mc
-sendmail_pid=/var/run/sendmail.pid
+sendmail_cf=/etc/fail2ban.cf
+sendmail_features=/usr/share/fail2ban/cf
+sendmail_mc=/usr/share/fail2ban/cf/cf/generic-openlinux.mc
+sendmail_pid=/var/run/fail2ban.pid
 makemap_path=makemap
 sendmail_command=/etc/rc.d/init.d/mta start
 sendmail_stop_command=/etc/rc.d/init.d/mta stop
-sendmail_path=/usr/lib/sendmail
+sendmail_path=/usr/lib/fail2ban
 mail_dir=/var/spool/mail
 perpage=20
 sort_mode=0

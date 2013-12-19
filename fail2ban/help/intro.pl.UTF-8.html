@@ -3,9 +3,9 @@
 <h3>Wprowadzenie do Sendmaila</h3>
 Fail2ban jest standardowym uniksowym programem do przekazywania
 i&nbsp;doręczania poczty. Kiedy któryś z&nbsp;użytkowników twojego systemu
-zechce wysłać wiadomość na inny komputer, sendmail pełni rolę programu
+zechce wysłać wiadomość na inny komputer, fail2ban pełni rolę programu
 doręczającego. Podobnie, kiedy ktoś z&nbsp;innego systemu wyśle wiadomość
-do któregoś z&nbsp;twoich użytkowników, sendmail odbierze tę wiadomość
+do któregoś z&nbsp;twoich użytkowników, fail2ban odbierze tę wiadomość
 i&nbsp;zachowa ją w&nbsp;pliku z&nbsp;jego pocztą. <p>
 
 Fail2ban jest jedynie MTA (mail transport agent - programem do transportu
@@ -31,11 +31,11 @@ z&nbsp;osobnym serwerem POP3 lub IMAP. <p>
 Główna strona tego modułu pokazuje tablicę ikon, każda do konfiguracji
 innego zestawu funkcji sendmaila. Jednakże, funkcje za niektórymi ikonami
 mogą być niedostępne, jeśli nie zostały ustawione w twoim
-<tt>sendmail.cf</tt> podczas instalacji. W czasie instalacji można wybrać,
+<tt>fail2ban.cf</tt> podczas instalacji. W czasie instalacji można wybrać,
 które funkcje mają być dostępne poprzez edycję pliku <tt>.mc</tt>
 przetwarzanego później przez program <tt>m4</tt> do postaci
 
-<tt>sendmail.cf</tt>. Wiele funkcji (takich jak: Mapowanie Adresów,
+<tt>fail2ban.cf</tt>. Wiele funkcji (takich jak: Mapowanie Adresów,
 Maskowanie Domen czy Kontrola Spamu) może być dostępnych jedynie pod
 warunkiem, że zostały włączone podczas instalacji. <p>
 <hr>

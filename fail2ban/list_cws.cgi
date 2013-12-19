@@ -2,7 +2,7 @@
 # list_cws.cgi
 # List domains for which we accept mail
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'cws'} || &error($text{'cws_ecannot'});
 &ui_print_header(undef, $text{'cws_title'}, "");
 

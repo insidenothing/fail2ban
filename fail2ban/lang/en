@@ -1,19 +1,19 @@
 index_title=Fail2ban Mail Server
-index_econfig=The sendmail config file $1 does not exist. Maybe Fail2ban is not installed, or your <a href='$2'>module configuration</a> is incorrect.
-index_eversion=Your sendmail config file does not appear to be for the latest sendmail version. Webmin only supports versions 8.8 and above.
-index_epath=The sendmail executable $1 is not installed on your system. Maybe your <a href='$2'>module configuration</a> is incorrect, or sendmail is not installed.
-index_return=sendmail configuration
+index_econfig=The fail2ban config file $1 does not exist. Maybe Fail2ban is not installed, or your <a href='$2'>module configuration</a> is incorrect.
+index_eversion=Your fail2ban config file does not appear to be for the latest fail2ban version. Webmin only supports versions 8.8 and above.
+index_epath=The fail2ban executable $1 is not installed on your system. Maybe your <a href='$2'>module configuration</a> is incorrect, or fail2ban is not installed.
+index_return=fail2ban configuration
 index_stop=Stop Fail2ban
-index_stopmsg=Click this button to stop the running sendmail process. This will stop mail from being delivered to local users from other systems, and prevent clients using this system as a mail server from sending mail.
+index_stopmsg=Click this button to stop the running fail2ban process. This will stop mail from being delivered to local users from other systems, and prevent clients using this system as a mail server from sending mail.
 index_start=Start Fail2ban
-index_startmsg=Click this button to start sendmail with the command $1. Until this is done mail will not be delivered to local users from other systems, and clients will not be able to use this system as a mail server.
+index_startmsg=Click this button to start fail2ban with the command $1. Until this is done mail will not be delivered to local users from other systems, and clients will not be able to use this system as a mail server.
 index_version2=Fail2ban version $1, config $2
 index_xversion=Fail2ban version $1
 index_version=Fail2ban config $1
 index_sendmail=Fail2ban
 
 opts_title=Fail2ban Options
-opts_ecannot=You are not allowed to edit sendmail options
+opts_ecannot=You are not allowed to edit fail2ban options
 opts_ds=Send outgoing mail via host
 opts_direct=Deliver directly
 opts_dr=Forward unqualified usernames to host
@@ -160,7 +160,7 @@ adelete_ecannot=You are not allowed to delete the alias $1
 cws_title=Local Domains
 cws_ecannot=You are not allowed to edit local domains
 cws_domains=Domains handled by this server
-cws_desc1=Apart from mail to $1, sendmail will only accept for local delivery mail for domains and hostnames listed in the text box below. If you want your mail server to handle multiple email domains, they must all be listed on this form.
+cws_desc1=Apart from mail to $1, fail2ban will only accept for local delivery mail for domains and hostnames listed in the text box below. If you want your mail server to handle multiple email domains, they must all be listed on this form.
 cws_desc2=Note that merely including a domain in the list is not usually enough. You must also make sure that a DNS record for the domain exists, and points to your system.
 cws_err=Failed to save local domains
 cws_ehost='$1' is not a valid host or domain name
@@ -171,7 +171,7 @@ masq_ecannot=You are not allowed to configure masquerading
 masq_domain=Masquerade as domain
 masq_domains=Domains to be masqueraded
 masq_ndomains=Domains not to masquerade
-masq_desc1=If a domain is given below, sendmail will alter the <tt>From</tt> address of all outgoing messages to appear to come from that domain. In addition, any email messages passing through your system from one of the hosts or domains listed below will also have their <tt>From</tt> addresses modified in the same way. Note that any domain masquerading defined here can be overriden for specific users using the <a href='$1'>Outgoing Addresses</a> page.
+masq_desc1=If a domain is given below, fail2ban will alter the <tt>From</tt> address of all outgoing messages to appear to come from that domain. In addition, any email messages passing through your system from one of the hosts or domains listed below will also have their <tt>From</tt> addresses modified in the same way. Note that any domain masquerading defined here can be overriden for specific users using the <a href='$1'>Outgoing Addresses</a> page.
 masq_desc2=This feature can be useful if you want email from your system to appear to come from your domain name rather than your hostname, or if your system is the mail hub for number of other hosts running their own mailservers.
 masq_err=Failed to save domain masquerading
 masq_edomain='$1' is not a valid domain to masquerade as
@@ -180,14 +180,14 @@ masq_eip='$1' is an IP address, not a domain
 
 trusts_title=Trusted Users
 trusts_ecannot=You are not allowed to edit trusted users
-trusts_users=Local users trusted by sendmail
-trusts_desc=If a local user tries to send email, sendmail will only allow the user to provide a different <tt>From:</tt> address if the user is on the list below. This restriction exists to prevent users from forging email with faked <tt>From:</tt> addresses origination from your system.
+trusts_users=Local users trusted by fail2ban
+trusts_desc=If a local user tries to send email, fail2ban will only allow the user to provide a different <tt>From:</tt> address if the user is on the list below. This restriction exists to prevent users from forging email with faked <tt>From:</tt> addresses origination from your system.
 trusts_err=Failed to save trusted users
 trusts_euser='$1' is not a valid user
 
 virtusers_title=Address Mappings
 virtusers_ecannot=You are not allowed to edit address mappings
-virtusers_efeature=Your sendmail configuration does not have the address mapping (<tt>virtuser</tt>) feature enabled. <a href='$1'>Click here</a> to setup sendmail features.
+virtusers_efeature=Your fail2ban configuration does not have the address mapping (<tt>virtuser</tt>) feature enabled. <a href='$1'>Click here</a> to setup fail2ban features.
 virtusers_efile=The text file $1 from which the address mapping database $2 is built does not exist. Maybe you need to modify the <a href='$3'>module configuration</a> to use the correct path.
 virtusers_createfile=Or if this feature has just been enabled, <a href='$1'>click here</a> to create the file.
 virtusers_desc1=Address mappings are similar to <a href='$1'>aliases</a>, but are more suited to a system that handles multiple email domains. They can be used to redirect mail for an entire domain to one address, handle users with the same name in different domains, or map all mail from one domain to another.
@@ -241,8 +241,8 @@ vdelete_ecannot=You are not allowed to delete the mapping for $1
 
 mailers_title=Domain Routing
 mailers_cannot=You are not allowed to edit domain routing
-mailers_edirective=Your sendmail configuration file does not have the necessary directive for domain routing.
-mailers_efeature=Your sendmail configuration does not have the domain routing (<tt>mailertable</tt>) feature enabled. <a href='$1'>Click here</a> to setup sendmail features.
+mailers_edirective=Your fail2ban configuration file does not have the necessary directive for domain routing.
+mailers_efeature=Your fail2ban configuration does not have the domain routing (<tt>mailertable</tt>) feature enabled. <a href='$1'>Click here</a> to setup fail2ban features.
 mailers_efile=The text file $1 from which the domain routing database $2 is built does not exist. Maybe you need to modify the <a href='$3'>module configuration</a> to use the correct path.
 mailers_desc1=Domain routing provides a way to define a special transfer method for mail to certain domains. This can be useful if your system is a gateway for mail servers that cannot be reached from outside your network, or if you want to force all mail for a particular domain to be routed through some other server.
 mailers_desc2=You should <b>not</b> have an entry in the <a href='$1'>local domains</a> list for any routed domains. However, you should have a DNS MX record pointing to your system for any domains that it is a gateway for.
@@ -287,8 +287,8 @@ mdelete_ecannot=You are not allowed to delete the route for $1
 
 generics_title=Outgoing Addresses
 generics_cannot=You are not allowed to edit outgoing addresses
-generics_econfig=Your sendmail configuration file does not have the necessary directive for outgoing address mapping.
-generics_efeature=Your sendmail configuration does not have the outgoing address mapping (<tt>generics</tt>) feature enabled. <a href='$1'>Click here</a> to setup sendmail features.
+generics_econfig=Your fail2ban configuration file does not have the necessary directive for outgoing address mapping.
+generics_efeature=Your fail2ban configuration does not have the outgoing address mapping (<tt>generics</tt>) feature enabled. <a href='$1'>Click here</a> to setup fail2ban features.
 generics_efile=The text file $1 from which the outgoing address database $2 is built does not exist. Maybe you need to modify the <a href='$3'>module configuration</a> to use the correct path.
 generics_desc1=Outgoing address mapping allows you to modify the <tt>From:</tt> addresses of mail send out from your system, or through your system by other hosts on your local network. This can be useful if you are hosting multiple domains on the one system, and want mail from some users to appear to come from a different domain.
 generics_desc2=Note that you must have an entry in the <a href='$1'>outgoing domains</a> table for each domain which there are addresses you want outgoing mapping done for. Also note that outgoing address mapping does not work for mail being delivered to local users.
@@ -320,15 +320,15 @@ gdelete_ecannot=You are not allowed to delete the mapping for $1
 cgs_title=Outgoing Domains
 cgs_ecannot=You are not allowed to edit outgoing domains
 cgs_header=Outgoing address domains
-cgs_desc=Apart from mail sent by local users, sendmail will only perform <a href='$1'>outgoing address</a> mapping for mail from hosts or domains listed in the text box below. Thus for an outgoing address entry to work the domain in the from address must be included in this list.
+cgs_desc=Apart from mail sent by local users, fail2ban will only perform <a href='$1'>outgoing address</a> mapping for mail from hosts or domains listed in the text box below. Thus for an outgoing address entry to work the domain in the from address must be included in this list.
 cgs_err=Failed to save outgoing domains
 cgs_ehost='$1' is not a valid host or domain name
 cgs_eip='$1' is an IP address, not a domain
 
 domains_title=Domain Mapping
 domains_ecannot=You are not allowed to edit domain mapping
-domains_econfig=Your sendmail configuration file does not have the necessary directive for domain mapping.
-domains_efeature=Your sendmail configuration does not have the domain mapping (<tt>domaintable</tt>) feature enabled. <a href='$1'>Click here</a> to setup sendmail features.
+domains_econfig=Your fail2ban configuration file does not have the necessary directive for domain mapping.
+domains_efeature=Your fail2ban configuration does not have the domain mapping (<tt>domaintable</tt>) feature enabled. <a href='$1'>Click here</a> to setup fail2ban features.
 domains_efile=The text file $1 from which the domain mapping database $2 is built does not exist. Maybe you need to modify the <a href='$3'>module configuration</a> to use the correct path.
 domains_desc=Domain mapping modifies the <tt>To:</tt> address of messages sent out from, relayed through or delivered to users on your system. The <tt>From:</tt> address of relayed messages or messages to local users is also modified. This can be useful if your domain name changes, and you want to change all occurrances of the old domain to the new one.
 domains_from=From domain..
@@ -352,10 +352,10 @@ ddelete_ecannot=You are not allowed to delete the mapping for $1
 
 access_title=Spam Control
 access_ecannot=You are not allowed to configure spam control
-access_efeature=Your sendmail configuration does not have the spam control (<tt>access_db</tt>) feature enabled. <a href='$1'>Click here</a> to setup sendmail features.
+access_efeature=Your fail2ban configuration does not have the spam control (<tt>access_db</tt>) feature enabled. <a href='$1'>Click here</a> to setup fail2ban features.
 access_efile=The text file $1 from which the spam control database $2 is built does not exist. Maybe you need to modify the <a href='$3'>module configuration</a> to use the correct path.
-access_desc1=Fail2ban's spam control feature allows you to prevent spam from reaching your users by rejecting mail from certain addresses, and to prevent spammers from using your system to relay mail. By default sendmail will accept mail from any address for a local user, but prevent any client or mail server from relaying mail through your system. Typically you would add spam control rules to reject mail from spammers, and rules to allow other machines on your network to relay mail through your system.
-access_desc2=Note that sendmail will by default allow mail clients running on your system to relay mail via SMTP to any destination. Thus there is no need to add the local <tt>127.0.0</tt> network to the list of those allowed to relay.
+access_desc1=Fail2ban's spam control feature allows you to prevent spam from reaching your users by rejecting mail from certain addresses, and to prevent spammers from using your system to relay mail. By default fail2ban will accept mail from any address for a local user, but prevent any client or mail server from relaying mail through your system. Typically you would add spam control rules to reject mail from spammers, and rules to allow other machines on your network to relay mail through your system.
+access_desc2=Note that fail2ban will by default allow mail clients running on your system to relay mail via SMTP to any destination. Thus there is no need to add the local <tt>127.0.0</tt> network to the list of those allowed to relay.
 access_source=Source..
 access_action=Action..
 access_return=spam control list
@@ -399,9 +399,9 @@ sdelete_ecannot=You are not allowed to delete the rule for $1
 
 relay_title=Relay Domains
 relay_ecannot=You are not allowed to edit relay domains
-relay_eversion=Only sendmail versions 8.9 and above support the relay domains feature.
+relay_eversion=Only fail2ban versions 8.9 and above support the relay domains feature.
 relay_domains=Domains to which relaying is allowed
-relay_desc1=Unless allowed by the <a href='$1'>spam control</a> rules, sendmail will only permit relaying to domains listed in the text box below. Incoming mail messages that are not for a local user and not for one of the listed domains will be rejected.
+relay_desc1=Unless allowed by the <a href='$1'>spam control</a> rules, fail2ban will only permit relaying to domains listed in the text box below. Incoming mail messages that are not for a local user and not for one of the listed domains will be rejected.
 relay_desc2=If your system is serving as a gateway for several domains that are not directly accessible from outside your network (using the <a href='$1'>domain routing</a> feature), then all those domains should be listed here.
 relay_err=Failed to save relay domains
 relay_edomain='$1' is not a valid domain name
@@ -610,7 +610,7 @@ file_err=Failed to edit file
 file_ealias=Invalid format for aliases file line : $1
 file_etab=Invalid format for map file line : $1
 
-acl_opts=Can edit sendmail options?
+acl_opts=Can edit fail2ban options?
 acl_ports=Can edit network ports?
 acl_cws=Can edit local domains?
 acl_masq=Can configure domain masquerading?
@@ -620,7 +620,7 @@ acl_relay=Can edit relay domains?
 acl_mailers=Can configure domain routing?
 acl_access=Can configure spam control?
 acl_domains=Can configure domain mapping?
-acl_stop=Can start and stop sendmail?
+acl_stop=Can start and stop fail2ban?
 acl_manual=Can manually edit files?
 acl_flushq=Can flush the mail queue?
 acl_mailq=Can manage mail queue?
@@ -677,7 +677,7 @@ acl_asame=Same as username
 acl_usersu=With UID in range
 acl_spam=Spam control addresses this user can edit
 
-log_opts=Changed sendmail options
+log_opts=Changed fail2ban options
 log_ports=Change network ports
 log_alias_create=Created alias $1
 log_alias_modify=Modified alias $1
@@ -711,8 +711,8 @@ log_relay=Changed relay domains
 log_flushq=Flushed mail queue
 log_delmailq=Deleted mail from $1 from queue
 log_delmailqs=Deleted $1 mails from queue
-log_stop=Stopped sendmail daemon
-log_start=Started sendmail daemon
+log_stop=Stopped fail2ban daemon
+log_start=Started fail2ban daemon
 log_delmail=Deleted $1 messages from $2
 log_movemail=Moved $1 messages from $2 to $3
 log_send=Sent mail to $1
@@ -720,7 +720,7 @@ log_feature_create=Added M4 entry $1
 log_feature_modify=Modified M4 entry $1
 log_feature_delete=Deleted M4 entry $1
 log_feature_move=Moved M4 entry $1
-log_build=Rebuilt sendmail configuration
+log_build=Rebuilt fail2ban configuration
 log_delete_aliases=Deleted $1 aliases
 log_delete_virtusers=Deleted $1 address mappings
 log_delete_domains=Deleted $1 domain mappings
@@ -804,16 +804,16 @@ build_rusure=Are you sure you want to replace the Fail2ban configuration file $1
 build_rusure2=Be aware that if you have made changes to Fail2ban in the Fail2ban Options page, rebuilding the config file may overwrite those changes if they have not also been made in the M4 file.
 build_ok=Yes, replace it now
 build_diff=The following changes will be made to your Fail2ban configuration file ..
-build_nodiff=Your sendmail configuration file is already up to date.
+build_nodiff=Your fail2ban configuration file is already up to date.
 
-stop_err=Failed to stop sendmail
-stop_ecannot=You are not allowed to stop sendmail
+stop_err=Failed to stop fail2ban
+stop_ecannot=You are not allowed to stop fail2ban
 stop_epid=Fail2ban does not appear to be running
-restart_epids=Could not find sendmail processes
-restart_ekill=Failed to signal sendmail processes : $1
+restart_epids=Could not find fail2ban processes
+restart_ekill=Failed to signal fail2ban processes : $1
 
-start_err=Failed to start sendmail
-start_ecannot=You are not allowed to start sendmail
+start_err=Failed to start fail2ban
+start_ecannot=You are not allowed to start fail2ban
 
 ports_title=Network Ports
 ports_name=Port name

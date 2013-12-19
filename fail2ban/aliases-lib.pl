@@ -20,7 +20,7 @@ else {
 
 # list_aliases(files)
 # Returns an array of data structures, each containing information about
-# one sendmail alias
+# one fail2ban alias
 sub list_aliases
 {
 local $jfiles = join(",", @{$_[0]});

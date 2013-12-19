@@ -1,8 +1,8 @@
 
-require 'sendmail-lib.pl';
+require 'fail2ban-lib.pl';
 
 # acl_security_form(&options)
-# Output HTML for editing security options for the sendmail module
+# Output HTML for editing security options for the fail2ban module
 sub acl_security_form
 {
 print "<tr> <td><b>$text{'acl_opts'}</b></td> <td>\n";
@@ -204,7 +204,7 @@ printf "<input name=saddrs size=40 value='%s'></td> </tr>\n",
 }
 
 # acl_security_save(&options)
-# Parse the form for security options for the sendmail module
+# Parse the form for security options for the fail2ban module
 sub acl_security_save
 {
 $_[0]->{'opts'} = $in{'opts'};

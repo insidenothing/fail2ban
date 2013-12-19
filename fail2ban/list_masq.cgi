@@ -2,7 +2,7 @@
 # list_masq.cgi
 # List domains for which masquerading is done
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'masq'} || &error($text{'masq_ecannot'});
 &ui_print_header(undef, $text{'masq_title'}, "");
 $conf = &get_sendmailcf();

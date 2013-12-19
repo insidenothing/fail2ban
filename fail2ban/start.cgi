@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 # start.cgi
-# Start sendmail
+# Start fail2ban
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 $access{'stop'} || &error($text{'start_ecannot'});
 &error_setup($text{'start_err'});
 $err = &start_sendmail();

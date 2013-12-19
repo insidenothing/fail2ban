@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 # filter.pl
 
-# read sendmail module config
+# read fail2ban module config
 $p = -l $0 ? readlink($0) : $0;
 $p =~ /^(.*)\/[^\/]+$/;
 if (open(CONF, "$1/config")) {
@@ -13,15 +13,15 @@ if (open(CONF, "$1/config")) {
 	close(CONF);
 	}
 if (!$config{'sendmail_path'}) {
-	# Make some guesses about sendmail
-	if (-x "/usr/sbin/sendmail") {
-		%config = ( 'sendmail_path' => '/usr/sbin/sendmail' );
+	# Make some guesses about fail2ban
+	if (-x "/usr/sbin/fail2ban") {
+		%config = ( 'sendmail_path' => '/usr/sbin/fail2ban' );
 		}
-	elsif (-x "/usr/lib/sendmail") {
-		%config = ( 'sendmail_path' => '/usr/lib/sendmail' );
+	elsif (-x "/usr/lib/fail2ban") {
+		%config = ( 'sendmail_path' => '/usr/lib/fail2ban' );
 		}
 	else {
-		die "Failed to find sendmail or config file";
+		die "Failed to find fail2ban or config file";
 		}
 	}
 # read headers and body

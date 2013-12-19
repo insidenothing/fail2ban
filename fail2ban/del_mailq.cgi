@@ -2,7 +2,7 @@
 # del_mailq.cgi
 # Delete some mail message from the queue
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './boxes-lib.pl';
 &ReadParse();
 

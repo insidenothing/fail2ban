@@ -1,5 +1,5 @@
 
-do 'sendmail-lib.pl';
+do 'fail2ban-lib.pl';
 do 'aliases-lib.pl';
 do 'virtusers-lib.pl';
 do 'mailers-lib.pl';

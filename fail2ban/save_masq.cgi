@@ -2,7 +2,7 @@
 # save_masq.cgi
 # Save domain masquerading
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 &ReadParseMime();
 $access{'masq'} || &error($text{'masq_ecannot'});
 &error_setup($text{'masq_err'});

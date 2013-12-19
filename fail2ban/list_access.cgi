@@ -2,7 +2,7 @@
 # list_access.cgi
 # Display a list of all domain and address mappings
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './access-lib.pl';
 &ReadParse();
 $access{'access'} || &error($text{'access_ecannot'});
@@ -12,7 +12,7 @@ $conf = &get_sendmailcf();
 $afile = &access_file($conf);
 ($adbm, $adbmtype) = &access_dbm($conf);
 if (!$adbm) {
-	# No Kaccess directive in sendmail.cf
+	# No Kaccess directive in fail2ban.cf
 	print "<b>",&text('access_efeature', 'list_features.cgi'),"</b><p>\n";
 	&ui_print_footer("", $text{'index_return'});
 	exit;

@@ -2,7 +2,7 @@
 # edit_mailer.cgi
 # Edit an existing mailer
 
-require './sendmail-lib.pl';
+require './fail2ban-lib.pl';
 require './mailers-lib.pl';
 &ReadParse();
 $access{'mailers'} || &error($text{'mform_ecannot'});
