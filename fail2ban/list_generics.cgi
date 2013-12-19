@@ -108,7 +108,7 @@ print &ui_columns_end();
 # from addresses like 'foo' or 'foo@anything'. However, a mapping for
 # 'foo@foo.com' applies only for that exact address
 # By default, the G class contains only the full local hostname 
-# (like florissa.home). Sendmail automatically adds the full hostname
+# (like florissa.home). Fail2ban automatically adds the full hostname
 # to unqualified addresses sent locally or through smtp (so <foo> becomes
 # <foo@florissa.home>
 # The G class can be defined by CG statements in sendmail.cf, or by a

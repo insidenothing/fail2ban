@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Update the list of TCP ports Sendmail uses
+# Update the list of TCP ports Fail2ban uses
 
 require './sendmail-lib.pl';
 require './features-lib.pl';
@@ -91,7 +91,7 @@ if ($features_access) {
 		}
 	}
 
-# Restart Sendmail
+# Restart Fail2ban
 &restart_sendmail();
 &webmin_log("ports");
 &redirect("");

@@ -519,7 +519,7 @@ if ($config{'sendmail_smf'}) {
 	local $out = &backquote_command("svcs -H -o STATE ".
 			quotemeta($config{'sendmail_smf'})." 2>&1");
 	if ($?) {
-		&error("Failed to get Sendmail status from SMF : $out");
+		&error("Failed to get Fail2ban status from SMF : $out");
 		}
 	return $out =~ /online/i ? 1 : 0;
 	}

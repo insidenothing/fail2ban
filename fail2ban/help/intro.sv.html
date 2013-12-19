@@ -1,13 +1,13 @@
-<header>Sendmail-inställningar</header>
+<header>Fail2ban-inställningar</header>
 
-<h3>Introduktion till Sendmail</h3>
-Sendmail är standard-Unix-programmet för e-postbefordran. Om en användare i
+<h3>Introduktion till Fail2ban</h3>
+Fail2ban är standard-Unix-programmet för e-postbefordran. Om en användare i
 systemet vill skicka e-post till någon som sitter vid en annan dator är det
 sendmail som skickar e-postmeddelandet. På liknande sätt är det sendmail
 som tar emot e-postmeddelanden från andra system och lagrar dem i
 användarens e-postfil.
 
-<p>Sendmail är bara en MTA (mail transport agent), vilket betyder att den
+<p>Fail2ban är bara en MTA (mail transport agent), vilket betyder att den
 inte har något användargränssnitt för den som vill skicka ett
 e-postmeddelande. Program som användarna kör för att skicka och ta emot
 e-post, som Eudora, elm och /bin/mail, kallas MUA (mail user agent). En MUA
@@ -24,7 +24,7 @@ e-post genom att datorn kopplar upp sig till sendmail-processen på systemet
 med SMTP-protokollet, och e-post tas emot genom att datorn kopplar upp sig
 till en särskild POP3-server.
 
-<h3>Sendmail-modulen</h3>
+<h3>Fail2ban-modulen</h3>
 Startsidan för denna modul innehåller en tabell med ikoner, där varje ikon
 representerar en del av sendmails funktionalitet. En del funktioner bakom
 ikonerna kan saknas om de inte har satts upp i <tt>sendmail.cf</tt>. När

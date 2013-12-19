@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Show a list of TCP ports Sendmail uses
+# Show a list of TCP ports Fail2ban uses
 
 require './sendmail-lib.pl';
 $access{'ports'} || &error($text{'ports_ecannot'});

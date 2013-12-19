@@ -1,18 +1,18 @@
-index_title=Sendmail Mail Server
-index_econfig=The sendmail config file $1 does not exist. Maybe Sendmail is not installed, or your <a href='$2'>module configuration</a> is incorrect.
+index_title=Fail2ban Mail Server
+index_econfig=The sendmail config file $1 does not exist. Maybe Fail2ban is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_eversion=Your sendmail config file does not appear to be for the latest sendmail version. Webmin only supports versions 8.8 and above.
 index_epath=The sendmail executable $1 is not installed on your system. Maybe your <a href='$2'>module configuration</a> is incorrect, or sendmail is not installed.
 index_return=sendmail configuration
-index_stop=Stop Sendmail
+index_stop=Stop Fail2ban
 index_stopmsg=Click this button to stop the running sendmail process. This will stop mail from being delivered to local users from other systems, and prevent clients using this system as a mail server from sending mail.
-index_start=Start Sendmail
+index_start=Start Fail2ban
 index_startmsg=Click this button to start sendmail with the command $1. Until this is done mail will not be delivered to local users from other systems, and clients will not be able to use this system as a mail server.
-index_version2=Sendmail version $1, config $2
-index_xversion=Sendmail version $1
-index_version=Sendmail config $1
-index_sendmail=Sendmail
+index_version2=Fail2ban version $1, config $2
+index_xversion=Fail2ban version $1
+index_version=Fail2ban config $1
+index_sendmail=Fail2ban
 
-opts_title=Sendmail Options
+opts_title=Fail2ban Options
 opts_ecannot=You are not allowed to edit sendmail options
 opts_ds=Send outgoing mail via host
 opts_direct=Deliver directly
@@ -61,7 +61,7 @@ opts_time=Time received
 
 aliases_title=Mail Aliases
 aliases_ecannot=You are not allowed to edit aliases
-aliases_enofile=No aliases file is defined in your Sendmail configuration
+aliases_enofile=No aliases file is defined in your Fail2ban configuration
 aliases_addr=Address
 aliases_to=Alias to..
 aliases_type1=Address $1
@@ -354,7 +354,7 @@ access_title=Spam Control
 access_ecannot=You are not allowed to configure spam control
 access_efeature=Your sendmail configuration does not have the spam control (<tt>access_db</tt>) feature enabled. <a href='$1'>Click here</a> to setup sendmail features.
 access_efile=The text file $1 from which the spam control database $2 is built does not exist. Maybe you need to modify the <a href='$3'>module configuration</a> to use the correct path.
-access_desc1=Sendmail's spam control feature allows you to prevent spam from reaching your users by rejecting mail from certain addresses, and to prevent spammers from using your system to relay mail. By default sendmail will accept mail from any address for a local user, but prevent any client or mail server from relaying mail through your system. Typically you would add spam control rules to reject mail from spammers, and rules to allow other machines on your network to relay mail through your system.
+access_desc1=Fail2ban's spam control feature allows you to prevent spam from reaching your users by rejecting mail from certain addresses, and to prevent spammers from using your system to relay mail. By default sendmail will accept mail from any address for a local user, but prevent any client or mail server from relaying mail through your system. Typically you would add spam control rules to reject mail from spammers, and rules to allow other machines on your network to relay mail through your system.
 access_desc2=Note that sendmail will by default allow mail clients running on your system to relay mail via SMTP to any destination. Thus there is no need to add the local <tt>127.0.0</tt> network to the list of those allowed to relay.
 access_source=Source..
 access_action=Action..
@@ -565,7 +565,7 @@ send_efile=Attached file $1 does not exist
 send_eattach=Attachments cannot total more that $1 kB in size.
 send_eperms=User $1 cannot read $2
 send_eperms2=You are not allowed to send file $1
-send_epath=Sendmail executable $1 does not exist.
+send_epath=Fail2ban executable $1 does not exist.
 
 delete_title=Delete Mail
 delete_rusure=Are you sure you want to delete the $1 selected messages from $2? This may take some time for a large mail file. Until the deletion has finished, no other action should be performed.
@@ -594,8 +594,8 @@ search_local=In local folders
 search_all=In all folders
 search_eboolean=Boolean searches using both 'and' and 'or' are not supported
 
-file_title=Edit Sendmail File
-file_desc=Use the text box below to manually edit the Sendmail file $1.
+file_title=Edit Fail2ban File
+file_desc=Use the text box below to manually edit the Fail2ban file $1.
 file_undo=Undo Changes
 file_edit=Manually edit $1
 file_ealiases=You can only edit an aliases file if you have access to all aliases.
@@ -748,8 +748,8 @@ match_!body=Body doesn't match
 match_!size=Size is less than
 match_!headers=Headers don't match
 
-features_title=Sendmail M4 Configuration
-features_desc=This page lists the relevant entries from the Sendmail M4 configuration file $1, from which the actual configuration file $2 is built.
+features_title=Fail2ban M4 Configuration
+features_desc=This page lists the relevant entries from the Fail2ban M4 configuration file $1, from which the actual configuration file $2 is built.
 features_type=Entry type
 features_value=Line in configuration file
 features_type0=Other
@@ -759,12 +759,12 @@ features_type3=Undefine
 features_type4=Mailer
 features_type5=OS Type
 features_add=Add new entry of type:
-features_build=Rebuild Sendmail Configuration
-features_buildmsg=Click this button to rebuild your Sendmail configuration file $1 from the M4 configuration entries listed above.
+features_build=Rebuild Fail2ban Configuration
+features_buildmsg=Click this button to rebuild your Fail2ban configuration file $1 from the M4 configuration entries listed above.
 features_return=M4 configuration
-features_emc=The Sendmail M4 configuration file $2 was not found on your system. Maybe it has not been installed (common for packaged installs of Sendmail), or the <a href='$1'>module config</a> is incorrect.
-features_efeatures=The Sendmail M4 configuration base directory $2 was not found on your system, or is not the correct directory. Maybe it has not been installed (common for packaged installs of Sendmail), or the <a href='$1'>module config</a> is incorrect.
-features_econfig=The locations of the Sendmail M4 base directory and M4 config file have not been set yet in your <a href='$1'>module configuration</a>. If you have installed Sendmail from the source, these should be under the original source directory.
+features_emc=The Fail2ban M4 configuration file $2 was not found on your system. Maybe it has not been installed (common for packaged installs of Fail2ban), or the <a href='$1'>module config</a> is incorrect.
+features_efeatures=The Fail2ban M4 configuration base directory $2 was not found on your system, or is not the correct directory. Maybe it has not been installed (common for packaged installs of Fail2ban), or the <a href='$1'>module config</a> is incorrect.
+features_econfig=The locations of the Fail2ban M4 base directory and M4 config file have not been set yet in your <a href='$1'>module configuration</a>. If you have installed Fail2ban from the source, these should be under the original source directory.
 features_move=Move
 features_manual=Edit file manually
 
@@ -787,7 +787,7 @@ feature_edef=The definition $1 already exists
 feature_emailer=The mailer $1 already exists
 feature_eostype=The OS type is already defined as $1
 feature_manual=Edit M4 File
-feature_mdesc=The page allowes you to manually edit the Sendmail M4 configuration file $1. Be careful, as no syntax checking will be done on your edits.
+feature_mdesc=The page allowes you to manually edit the Fail2ban M4 configuration file $1. Be careful, as no syntax checking will be done on your edits.
 
 feat_access_db=Spam control file
 feat_virtusertable=Address Mapping
@@ -797,18 +797,18 @@ feat_domaintable=Domain Mapping
 
 mailer_local=Local Unix delivery
 
-build_title=Rebuild Sendmail Configuration
-build_em4=The command $1 needed for rebuilding the Sendmail configuration file was not found on your system.
+build_title=Rebuild Fail2ban Configuration
+build_em4=The command $1 needed for rebuilding the Fail2ban configuration file was not found on your system.
 build_ebuild=Failed to build configuration : $1
-build_rusure=Are you sure you want to replace the Sendmail configuration file $1 with a new version built from $2 ?
-build_rusure2=Be aware that if you have made changes to Sendmail in the Sendmail Options page, rebuilding the config file may overwrite those changes if they have not also been made in the M4 file.
+build_rusure=Are you sure you want to replace the Fail2ban configuration file $1 with a new version built from $2 ?
+build_rusure2=Be aware that if you have made changes to Fail2ban in the Fail2ban Options page, rebuilding the config file may overwrite those changes if they have not also been made in the M4 file.
 build_ok=Yes, replace it now
-build_diff=The following changes will be made to your Sendmail configuration file ..
+build_diff=The following changes will be made to your Fail2ban configuration file ..
 build_nodiff=Your sendmail configuration file is already up to date.
 
 stop_err=Failed to stop sendmail
 stop_ecannot=You are not allowed to stop sendmail
-stop_epid=Sendmail does not appear to be running
+stop_epid=Fail2ban does not appear to be running
 restart_epids=Could not find sendmail processes
 restart_ekill=Failed to signal sendmail processes : $1
 

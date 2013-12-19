@@ -1230,7 +1230,7 @@ return $masq ? $masq : &get_system_hostname();
 }
 
 # mail_from_queue(qfile, [dfile|"auto"])
-# Reads a message from the Sendmail mail queue
+# Reads a message from the Fail2ban mail queue
 sub mail_from_queue
 {
 local $mail = { 'file' => $_[0] };
